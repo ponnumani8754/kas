@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Website</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #008CBA;
+      padding: 15px 30px;
+      color: white;
+      position: sticky;
+      top: 0;
+    }
+
+    nav h1 {
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 80vh;
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      background: rgba(0,0,0,0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    /* Gallery */
+    .gallery {
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Booking Form */
+    .booking {
+      background: #f4f4f4;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .booking h2 {
+      margin-bottom: 20px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, select, button {
+      padding: 12px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      background: #008CBA;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #005f75;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: white;
+      margin-top: 20px;
+    }
+
+    /* Responsive Navbar */
+    @media(max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <h1>TravelX</h1>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#booking">Booking</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Explore The World With Us 🌍</h2>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="gallery">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="">
+    <img src="https://images.unsplash.com/photo-1518684079-48e9a090f95b" alt="">
+    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="">
+    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" alt="">
+    <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff" alt="">
+    <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3f" alt="">
+  </section>
+
+  <!-- Booking Form -->
+  <section id="booking" class="booking">
+    <h2>Book Your Trip ✈️</h2>
+    <form onsubmit="submitForm(event)">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <select id="destination" required>
+        <option value="">Choose Destination</option>
+        <option>Maldives</option>
+        <option>Paris</option>
+        <option>Switzerland</option>
+        <option>New York</option>
+      </select>
+      <input type="date" id="date" required>
+      <button type="submit">Book Now</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>© 2025 TravelX | Designed with ❤️</p>
+  </footer>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const destination = document.getElementById("destination").value;
+      alert(`Thanks ${name}! Your trip to ${destination} is booked 🎉`);
+    }
+  </script>
+
+</body>
+</html>
